@@ -21,9 +21,6 @@ const HeaderSubtitle = ({classes}: {
   const subtitleString = currentRoute.subtitle;
   const subtitleLink = currentRoute.subtitleLink;
   
-  if (!SubtitleComponent && !subtitleString)
-    return null;
-  
   if (SubtitleComponent) {
     return <SubtitleComponent isSubtitle={true} />
   } else if (subtitleLink) {
@@ -35,7 +32,9 @@ const HeaderSubtitle = ({classes}: {
       {subtitleString}
     </span>
   } else {
-    return null;
+    return <span className={classes.subtitle}>
+      Test server
+    </span>
   }
 }
 
