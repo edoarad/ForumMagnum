@@ -32,7 +32,7 @@ const styles = (theme: ThemeType): JssStyles => ({
     paddingRight: 4,
   },
   showNegative: {
-    paddingLeft: 2,
+    paddingLeft: 16,
   },
 });
 
@@ -192,16 +192,20 @@ class KarmaChangeNotifierSettings extends PureComponent<KarmaChangeNotifierSetti
         doing something else.
       </span> }
       {
-        <div className={classes.showNegative}>
-          <Checkbox
+        <FormControlLabel
+          control={<Checkbox
+            id="showNegativeCheckbox"
             classes={{root: classes.checkbox}}
             checked={settings.showNegativeKarma}
             onChange={(event, checked) => this.modifyValue({showNegativeKarma: checked})}
-          />
-          <Typography variant="body2" className={classes.inline} component="label">
-            Show negative karma notifications
-          </Typography>
-        </div>
+          />}
+          label={
+            <Typography variant="body2" className={classes.inline}>
+              Show negative karma notifications
+            </Typography>
+          }
+          className={classes.showNegative}
+        />
       }
     </div>
   }
