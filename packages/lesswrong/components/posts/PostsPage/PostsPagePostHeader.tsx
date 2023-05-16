@@ -282,7 +282,6 @@ const PostsPagePostHeader = ({post, answers = [], dialogueResponses = [], toggle
           {isEAForum ? <LWTooltip title={postGetCommentCountStr(post, commentCount)}>
             {commentCountNode}
           </LWTooltip> : commentCountNode}
-          {isEAForum && <BookmarkButton post={post} variant='iconWithText' />}
           {toggleEmbeddedPlayer &&
             (cachedTooltipSeen ?
               <LWTooltip title={'Listen to this post'} className={classes.togglePodcastContainer}>
@@ -305,7 +304,7 @@ const PostsPagePostHeader = ({post, answers = [], dialogueResponses = [], toggle
           {!hideMenu &&
             <span className={classes.actions}>
               <AnalyticsContext pageElementContext="tripleDotMenu">
-                <PostActionsButton post={post} includeBookmark={!isEAForum} />
+                <PostActionsButton post={post} />
               </AnalyticsContext>
             </span>
           }
